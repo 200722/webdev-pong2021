@@ -29,9 +29,13 @@ Stap 0: BOILERPLATE & SETUP & GIT
    
 
 --------------------------------------------------------------------------   
-Stap1: 
+Stap1: GAME CLASS
 --------------------------------------------------------------------------
-
+ - Game Class aanmaken (game.js)
+   - Game constructor aanmaken
+   - Game update & draw aanmaken
+   - Game instance aanmaken
+   - Testen
 
 --------------------------------------------------------------------------
 Stap2: 
