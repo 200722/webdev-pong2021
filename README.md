@@ -87,10 +87,11 @@ Stap5: PLAYER
    - Object Player laten bewegen
 
 --------------------------------------------------------------------------
-
+Stap6: PLAYER & INPUT
 --------------------------------------------------------------------------
 
- 
+   - Uitleg: Event's KEY_DOWN en KEY_UP opvangen
+   - Game function checkInput aanmaken
 
 --------------------------------------------------------------------------
 Stap7: 
