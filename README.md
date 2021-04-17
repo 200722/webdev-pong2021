@@ -38,9 +38,13 @@ Stap1: GAME CLASS
    - Testen
 
 --------------------------------------------------------------------------
-Stap2: 
+Stap2:  GAMELOOP
 --------------------------------------------------------------------------
-
+  - Uitleg: Class
+   - Polyfill voor requestAnimationFrame aanmaken (polyfill.js)
+   - Uitleg Gameloop (met setInterval en arrow-function)
+   - Game update & draw aanroepen
+   - Testen
 
 --------------------------------------------------------------------------
 Stap3: 
