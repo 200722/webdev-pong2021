@@ -15,7 +15,7 @@ class Game
         ];
 
         // Maak een Headsup-display aan voor de randen en de score
-        // this.hud = new Hud(this); 
+        this.hud = new Hud(this);
 
         // Maak een array aan voor de toetsen
         this.keys = [];
