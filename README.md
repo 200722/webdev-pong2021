@@ -90,28 +90,44 @@ Stap5: PLAYER
 Stap6: PLAYER & INPUT
 --------------------------------------------------------------------------
 
-   - Uitleg: Event's KEY_DOWN en KEY_UP opvangen
+   - Uitleg: Keyboard input
+   - Event's KEY_DOWN en KEY_UP opvangen
    - Game function checkInput aanmaken
+     (gebruik makend van: ternary operator, player.velocity.y, this.keys[38])
+   - Input player1 (human)
+   - Input player2 (computer)
 
 --------------------------------------------------------------------------
-Stap7: 
+Stap7: HEADSUP-DISPLAY
 --------------------------------------------------------------------------
 
-
---------------------------------------------------------------------------
-Stap8: 
---------------------------------------------------------------------------
-
-
---------------------------------------------------------------------------
-Stap9: 
---------------------------------------------------------------------------
+   - Uitleg: Canvas met id="hud"
+   - HUD Class aanmaken (hud.js)
+   - Edge Class aanmaken (edge.js)
 
 
 --------------------------------------------------------------------------
-Stap10: 
+Stap8: COMMENTS
 --------------------------------------------------------------------------
 
+   - Comments plaatsen
+   - Edge bovenkant/onderkant collision fix
+
+--------------------------------------------------------------------------
+Stap9: LABEL
+--------------------------------------------------------------------------
+   
+   - Uitleg Class Label (label.js)
+   - Tekstveld aanmaken met Class Label ('test')
+   - Scores aanmaken voor speler1 en speler2 
+
+--------------------------------------------------------------------------
+Stap10: COLLISION
+--------------------------------------------------------------------------
+   
+   - Verwijderen botsingen bal op zijkanten van speelveld
+   - Toevoegen botsingen bal/speler (op zijkant speler)
+   - Toevoegen botsingen bal/speler (op boven- & onderkant speler)
 
 --------------------------------------------------------------------------
 Stap11: 
