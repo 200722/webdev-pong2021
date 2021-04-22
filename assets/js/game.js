@@ -4,6 +4,8 @@ class Game {
 		this.canvas = document.getElementById('pong');
 		this.context = this.canvas.getContext('2d');
 
+		
+
 		// Bal-object aanmaken
 		this.ball = new Ball(this.canvas.width / 2, this.canvas.height / 2, 'orange');
 
@@ -92,6 +94,7 @@ class Game {
 		}
 	}
 
+
 	update(deltatime) {
 		if (this.ball.locked) return;
 
@@ -108,8 +111,13 @@ class Game {
 
 		this.checkCollisions(this.players, this.ball, this.hud.edges, deltatime);
 	}
-
+	
+	// audio
+	
 	checkCollisions(players, ball, edges, deltatime) {
+		let comScore = new Audio();
+		comScore.src = "audio/comScore.mp3";
+		
 		// Controleer of de bedjes van speler1 en speler2 tegen de randen aankomen
 		for (let p = 0; p < players.length; p++) {
 			if (players[p].top < edges[0].bottom) {
@@ -128,18 +136,24 @@ class Game {
 		// Check of de bal een bedje van een speler raakt
 
 		// Check of bal in de buurt is van speler1 of speler2
+	
 		if (ball.left + ball.velocity.y * deltatime < players[0].right || ball.right - ball.velocity.y * deltatime > players[1].left) {
+		
+
 			// Check op welke speler de focus moet liggen voor wat betreft de aankomende botsing
 			const player = ball.position.x < this.canvas.width / 2 ? players[0] : players[1];
 			// Check of er een botsing gaat plaatsvinden in de volgende frame (AABB)
 			if (this.collide(ball, player, deltatime)) {
 				// Check of de botsing frontaal was
+				let wall = new Audio();
+				wall.src = "audio/wall.mp3";
 				if (ball.bottom > player.top && ball.top < player.bottom) {
 					console.log('frontale botsing gedetecteerd');
 					// Positioneer bal op zijkant van spelerbedje
 					ball.position.x = player.id === 1 ? player.right + ball.size.y / 2 : player.left - ball.size.y / 2;
 					// Laat bal stuiteren op de x-as
 					ball.velocity.x = -ball.velocity.x;
+					wall.play();
 
                     const ballY    = ball.position.y   | 0;
                     const playerY  = player.position.y | 0;
@@ -161,6 +175,8 @@ class Game {
 					console.log('botsing aan de bovenkant van speler gedetecteerd');
 					ball.position.y = player.top - ball.size.y / 2;
 					ball.velocity.y = player.velocity.y < 0 && player.velocity.y < ball.velocity.y ? player.velocity.y * 1.1 : -ball.velocity.y;
+				
+				
 					// Check of de botsing van onderaf was
 				} else if (ball.position.y > player.position.y) {
 					console.log('botsing aan de onderkant van speler gedetecteerd');
@@ -173,9 +189,12 @@ class Game {
 			if (ball.right < 0 || ball.left > this.canvas.width) {
 				this.hud.addScore(player.id === 1 ? 2 : 1);
 				ball.out = true;
+				comScore.play();
+				
 				setTimeout(() => {
 					this.ball.reset();
 				}, 1000);
+			
 			}
 		}
 
@@ -187,14 +206,19 @@ class Game {
 	}
 
 	collide(rect1, rect2, dt) {
+		
+
 		if (rect1.left + rect1.velocity.x * dt < rect2.right + rect2.velocity.x * dt && rect1.right + rect1.velocity.x * dt > rect2.left + rect2.velocity.x * dt && rect1.top + rect1.velocity.y * dt < rect2.bottom + rect2.velocity.y * dt && rect1.bottom + rect1.velocity.y * dt > rect2.top + rect2.velocity.y * dt) {
 			return true;
 		} else {
 			return false;
 		}
+	
 	}
 
 	draw() {
+		
+
 		// Maak de context van canvas leeg en verwijder de pixels
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		// Teken de bal
@@ -203,6 +227,7 @@ class Game {
 		for (let i = 0; i < this.players.length; i++) {
 			this.drawRectangle(this.context, this.players[i]);
 		}
+	
 	}
 
 	drawRectangle(ctx, rect, color = 'white') {
