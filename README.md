@@ -122,12 +122,9 @@ Stap9: LABEL
    - Scores aanmaken voor speler1 en speler2 
 
 --------------------------------------------------------------------------
-Stap10: COLLISION
+
 --------------------------------------------------------------------------
-   
-   - Verwijderen botsingen bal op zijkanten van speelveld
-   - Toevoegen botsingen bal/speler (op zijkant speler)
-   - Toevoegen botsingen bal/speler (op boven- & onderkant speler)
+  
 
 --------------------------------------------------------------------------
 Stap11: 
