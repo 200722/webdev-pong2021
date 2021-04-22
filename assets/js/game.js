@@ -115,6 +115,7 @@ class Game {
 	// audio
 	
 	checkCollisions(players, ball, edges, deltatime) {
+		// audio
 		let comScore = new Audio();
 		comScore.src = "audio/comScore.mp3";
 		
@@ -145,8 +146,10 @@ class Game {
 			// Check of er een botsing gaat plaatsvinden in de volgende frame (AABB)
 			if (this.collide(ball, player, deltatime)) {
 				// Check of de botsing frontaal was
+				// audio
 				let wall = new Audio();
 				wall.src = "audio/wall.mp3";
+
 				if (ball.bottom > player.top && ball.top < player.bottom) {
 					console.log('frontale botsing gedetecteerd');
 					// Positioneer bal op zijkant van spelerbedje
